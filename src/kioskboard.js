@@ -267,6 +267,8 @@
   var KioskBoard = {
     // Initialize
     init: function (initOptions) {
+      kioskBoardCachedKeys = null;
+      kioskBoardNewOptions = null;
       initOptions = typeof initOptions === 'object' && Object.keys(initOptions).length > 0 ? initOptions : {};
       kioskBoardNewOptions = kioskBoardExtendObjects(true, kioskBoardDefaultOptions, initOptions);
       kioskBoardInternalCSS();
