@@ -331,7 +331,7 @@
         // object has keys
         objectHasKeys = true;
         // cache the array
-        kioskBoardCachedKeys = keysArrayOfObjects;
+        // kioskBoardCachedKeys = keysArrayOfObjects;
       }
       // Step 1: check the "keysArrayOfObjects": end
 
@@ -904,7 +904,7 @@
                 if (typeof data === 'string' && data.length > 0) {
                   var parsedData = JSON.parse(data); // JSON parse data
                   if (kioskBoardCheckArrayOfObjects(parsedData)) {
-                    kioskBoardCachedKeys = parsedData; // cache the keys
+                    // kioskBoardCachedKeys = parsedData; // cache the keys
                     createKeyboardAndAppendTo(parsedData, input); // create the keyboard
                   } else {
                     kioskBoardConsoleError('Array of objects of the keys are not valid. \n\nVisit to learn more: ' + kioskBoardGithubUrl);
@@ -931,14 +931,7 @@
 
         // if: an input or textarea element
         if (allowedElementTypes.indexOf(getTagName) > -1) {
-          // if: has cached keys => create the keyboard by using cached keys
-          if (kioskBoardCachedKeys) {
-            createKeyboardAndAppendTo(kioskBoardCachedKeys, eachElement);
-          }
-          // else: try to get the keys from the JSON file via XmlHttpRequest
-          else {
-            getKeysViaXmlHttpRequest(opt.keysJsonUrl, eachElement);
-          }
+          getKeysViaXmlHttpRequest(opt.keysJsonUrl, eachElement);
         }
         // else: other elements
         else {
