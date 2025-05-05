@@ -624,11 +624,11 @@
                   e.preventDefault();
 
                   // check input max & maxlength
-                  var maxLength = (input.getAttribute('maxlength') || '') * 1;
-                  var max = (input.getAttribute('max') || '') * 1;
-                  var liveValueLength = (input.value || '').length || 0;
-                  if (maxLength > 0 && liveValueLength >= maxLength) { return false; }
-                  if (max > 0 && liveValueLength >= max) { return false; }
+                  // var maxLength = (input.getAttribute('maxlength') || '') * 1;
+                  // var max = (input.getAttribute('max') || '') * 1;
+                  // var liveValueLength = (input.value || '').length || 0;
+                  // if (maxLength > 0 && liveValueLength >= maxLength) { return false; }
+                  // if (max > 0 && liveValueLength >= max) { return false; }
 
                   // input trigger focus
                   input.focus();
@@ -717,6 +717,11 @@
                 // input trigger change event for update the value
                 input.dispatchEvent(changeEvent);
                 input.dispatchEvent(new Event('input', { bubbles: true })); 
+                input.dispatchEvent(new KeyboardEvent('keydown', {
+                  key: 'Backspace',
+                  bubbles: true,
+                  cancelable: true,
+                }));
               });
             }
             // backspace key click listener: end
