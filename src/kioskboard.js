@@ -661,6 +661,7 @@
 
                     // input trigger change event for update the value
                     input.dispatchEvent(changeEvent);
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
                   }
                 });
               }
@@ -715,6 +716,7 @@
 
                 // input trigger change event for update the value
                 input.dispatchEvent(changeEvent);
+                input.dispatchEvent(new Event('input', { bubbles: true })); 
               });
             }
             // backspace key click listener: end
